@@ -57,3 +57,23 @@ class TestHashtagSkill:
 
         skill = get_skill("hashtags")
         assert skill.name == "hashtags"
+
+    def test_skips_empty_tags(self):
+        import json
+
+        from brand_loom.providers.base import register_provider
+
+        class StubProvider:
+            def generate(self, prompt, *, system=None, max_tokens=1024,
+                         temperature=0.7, model=None):
+                return '["#ai", "", "  ", "#", "##", "AI", "ml"]'
+
+        register_provider("stub-empty-tags", StubProvider())
+        use_provider("stub-empty-tags")
+        try:
+            result = HashtagSkill().run(SkillInput(text="ai"))
+            tags = json.loads(result.text)
+            assert tags == ["#ai", "#ml"]
+            assert result.metadata["count"] == 2
+        finally:
+            use_provider("fake")
