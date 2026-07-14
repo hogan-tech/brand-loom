@@ -115,6 +115,43 @@ class TestOllamaProvider:
             result = p.generate("test prompt")
             assert result == "mocked ollama"
 
+    def test_default_timeout(self):
+        from brand_loom.providers.ollama import OllamaProvider
+
+        p = OllamaProvider()
+        assert p._timeout == 120.0
+
+    def test_timeout_from_env(self, monkeypatch):
+        from brand_loom.providers.ollama import OllamaProvider
+
+        monkeypatch.setenv("OLLAMA_TIMEOUT", "5")
+        p = OllamaProvider()
+        assert p._timeout == 5.0
+
+    def test_explicit_timeout_beats_env(self, monkeypatch):
+        from brand_loom.providers.ollama import OllamaProvider
+
+        monkeypatch.setenv("OLLAMA_TIMEOUT", "5")
+        p = OllamaProvider(timeout=30)
+        assert p._timeout == 30
+
+    def test_generate_passes_timeout(self):
+        import json
+
+        from brand_loom.providers.ollama import OllamaProvider
+
+        p = OllamaProvider(timeout=7)
+        response_data = json.dumps({"message": {"content": "ok"}}).encode()
+
+        mock_resp = MagicMock()
+        mock_resp.read.return_value = response_data
+        mock_resp.__enter__ = MagicMock(return_value=mock_resp)
+        mock_resp.__exit__ = MagicMock(return_value=False)
+
+        with patch("urllib.request.urlopen", return_value=mock_resp) as mock_urlopen:
+            p.generate("test prompt")
+        assert mock_urlopen.call_args.kwargs["timeout"] == 7
+
 
 class TestModelPrefixRouting:
     def test_gpt_routes_to_openai(self):

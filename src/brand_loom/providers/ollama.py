@@ -10,9 +10,17 @@ import urllib.request
 class OllamaProvider:
     """Ollama LLM provider (local, no API key needed)."""
 
-    def __init__(self, host: str | None = None, default_model: str = "llama3"):
+    def __init__(
+        self,
+        host: str | None = None,
+        default_model: str = "llama3",
+        timeout: float | None = None,
+    ):
         self._host = (host or os.environ.get("OLLAMA_HOST", "http://localhost:11434")).rstrip("/")
         self._default_model = default_model
+        self._timeout = timeout if timeout is not None else float(
+            os.environ.get("OLLAMA_TIMEOUT", "120")
+        )
 
     def generate(
         self,
@@ -44,6 +52,6 @@ class OllamaProvider:
             data=payload,
             headers={"Content-Type": "application/json"},
         )
-        with urllib.request.urlopen(req) as resp:
+        with urllib.request.urlopen(req, timeout=self._timeout) as resp:
             data = json.loads(resp.read())
         return data["message"]["content"]
