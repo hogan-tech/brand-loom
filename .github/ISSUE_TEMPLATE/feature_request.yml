@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest a new skill or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature
+      placeholder: |
+        A clear description of what you'd like to see added.
+        Note: voice extraction, orchestration, tuned scorers, and analytics
+        integrations are out of scope (see SCOPE.md).
+    validations:
+      required: true
+  - type: textarea
+    id: usecase
+    attributes:
+      label: Use case
+      placeholder: How would you use this feature?
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Is this in scope?
+      options:
+        - "Yes — single-shot skill or provider adapter"
+        - "Not sure — need maintainer input"
+        - "Probably out of scope — voice/orchestration/scoring"
+    validations:
+      required: true
