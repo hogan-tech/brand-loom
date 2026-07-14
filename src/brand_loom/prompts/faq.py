@@ -2,6 +2,14 @@
 
 from __future__ import annotations
 
+FAQ_MIN_COUNT = 3
+FAQ_MAX_COUNT = 6
+
+
+def clamp_faq_count(count: int) -> int:
+    """Clamp the requested pair count to the supported 3-6 range."""
+    return max(FAQ_MIN_COUNT, min(FAQ_MAX_COUNT, count))
+
 
 def build_faq_prompt(
     body: str,
@@ -12,7 +20,7 @@ def build_faq_prompt(
     brand_context: dict | None = None,
 ) -> tuple[str, str]:
     """Build (system, user) prompts for FAQ generation."""
-    count = max(3, min(6, count))
+    count = clamp_faq_count(count)
 
     system = (
         f"You are a content strategist. Write in {locale}. "
