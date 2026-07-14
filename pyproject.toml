@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "brand-loom"
+version = "0.1.0"
+description = "Open-source marketing skills that run on any model."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "Hogan Lin" }]
+keywords = ["marketing", "llm", "skills", "seo", "content"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0"]
+anthropic = ["anthropic>=0.20"]
+gemini = ["google-genai>=1.0"]
+all = ["brand-loom[openai,anthropic,gemini]"]
+dev = ["ruff>=0.4", "pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://github.com/hogan-tech/brand-loom"
+Documentation = "https://github.com/hogan-tech/brand-loom#readme"
+Repository = "https://github.com/hogan-tech/brand-loom"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
