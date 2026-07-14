@@ -78,6 +78,21 @@ result = run_skill("hook", "AI marketing", brand_context={
 print(result.text)
 ```
 
+## Install in your coding agent
+
+brand-loom also works as an agent skill in Claude Code, Cursor, OpenClaw, and any
+[skills.sh](https://skills.sh)-compatible host:
+
+```bash
+npx skills add hogan-tech/brand-loom
+```
+
+Each skill is available as a `SKILL.md` in the `skills/` directory with frontmatter that agent hosts parse
+automatically. No configuration needed — install and use.
+
+> brand-loom remains **model-agnostic and usable without any coding agent** via `pip install brand-loom` + the CLI.
+> The agent-skill surface is additive distribution, not a requirement.
+
 ## Skills (v0.1)
 
 | Skill | What it does |

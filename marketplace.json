@@ -1,0 +1,91 @@
+{
+  "name": "brand-loom",
+  "displayName": "brand-loom — model-agnostic marketing skills",
+  "description": "Open-source marketing skills that run on any model. Hooks, captions, hashtags, repurposing, SEO outlines, FAQs, schema.org markup, CTAs. BYOK. Hosted brand-memory engine at neoxra.com.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "author": "hogan-tech",
+  "homepage": "https://github.com/hogan-tech/brand-loom",
+  "skills": [
+    {
+      "name": "hook",
+      "displayName": "Hook / Headline Generator",
+      "description": "Marketing hooks and headlines, on any model",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "hooks, headlines, opening lines, scroll-stoppers for social or SEO"
+    },
+    {
+      "name": "caption",
+      "displayName": "Caption Writer",
+      "description": "Platform captions from a topic with brand voice",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "social media captions, post copy, platform-specific text"
+    },
+    {
+      "name": "hashtags",
+      "displayName": "Hashtag Generator",
+      "description": "Relevant, deduped hashtag sets for any topic",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "hashtags, tags, social discovery keywords"
+    },
+    {
+      "name": "repurpose",
+      "displayName": "Content Repurposer",
+      "description": "Repurpose content across formats (short, thread, carousel)",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "content repurposing, format conversion, cross-platform adaptation"
+    },
+    {
+      "name": "seo-outline",
+      "displayName": "SEO Article Outline",
+      "description": "Structured SEO article outlines with section planning",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "SEO outlines, article planning, content structure, blog post skeletons"
+    },
+    {
+      "name": "faq",
+      "displayName": "FAQ Generator",
+      "description": "Generate FAQ question-answer pairs from any content",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "FAQs, Q&A sections, knowledge base entries, help content"
+    },
+    {
+      "name": "schema-org",
+      "displayName": "Schema.org Markup Generator",
+      "description": "FAQPage / Article / Breadcrumb JSON-LD (no LLM needed)",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "schema.org markup, JSON-LD, structured data, SEO rich snippets"
+    },
+    {
+      "name": "cta",
+      "displayName": "CTA Writer",
+      "description": "Call-to-action variants for any goal",
+      "version": "0.1.0",
+      "license": "Apache-2.0",
+      "author": "hogan-tech",
+      "homepage": "https://github.com/hogan-tech/brand-loom",
+      "when_to_use": "CTAs, buttons, conversion copy, action prompts, closing lines"
+    }
+  ]
+}
