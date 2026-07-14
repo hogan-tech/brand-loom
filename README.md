@@ -1,12 +1,10 @@
-<!-- SKELETON — proposed README for brand-loom. Replaces the current one-line README on approval. -->
-
 # brand-loom
 
 **Open-source marketing skills that run on any model — with a hosted brand-memory engine. No coding agent required.**
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/brand-loom.svg)](https://pypi.org/project/brand-loom/)
-[![CI](https://github.com/hogan-tech/brand-loom/actions/workflows/ci.yml/badge.svg)](../../actions)
+[![CI](https://github.com/hogan-tech/brand-loom/actions/workflows/ci.yml/badge.svg)](https://github.com/hogan-tech/brand-loom/actions/workflows/ci.yml)
 
 `brand-loom` is a small library of **commodity marketing skills** — hooks, captions, hashtags, content
 repurposing, SEO outlines, FAQs, schema.org markup, CTAs — that run on **any LLM** (OpenAI, Anthropic, Gemini,
@@ -55,6 +53,30 @@ brand-loom chain hook,caption --text "How we cut cloud costs 40%" --brand brand.
 
 A thin, linear runner — one skill or a simple chain, on any model. Sophisticated multi-platform orchestration
 (voice-matched, Planner→Critic, auto fan-out) lives in hosted **[Neoxra](https://neoxra.com)**.
+
+Agent chain (Python API):
+
+```python
+from brand_loom.agent import run_chain, run_skill
+from brand_loom.providers import use_provider
+
+use_provider("fake")  # or "openai", "anthropic", "gemini", "ollama"
+
+# Single skill
+result = run_skill("hook", "How we cut cloud costs 40%")
+print(result.text)
+
+# Chain: hook → caption
+result = run_chain(["hook", "caption"], "How we cut cloud costs 40%")
+print(result.text)
+
+# With brand context
+result = run_skill("hook", "AI marketing", brand_context={
+    "tone": ["bold", "witty"],
+    "audience": "startup founders",
+})
+print(result.text)
+```
 
 ## Skills (v0.1)
 
