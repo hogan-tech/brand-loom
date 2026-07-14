@@ -42,6 +42,8 @@ class HashtagSkill(Skill):
                 deduped: list[str] = []
                 for tag in tags:
                     t = str(tag).strip()
+                    if not t.lstrip("#"):
+                        continue
                     if not t.startswith("#"):
                         t = f"#{t}"
                     lower = t.lower()
