@@ -89,3 +89,19 @@ def _lazy_import(name: str) -> None:
         from brand_loom.providers.fake import FakeProvider
 
         register_provider("fake", FakeProvider())
+    elif name == "openai":
+        from brand_loom.providers.openai import OpenAIProvider
+
+        register_provider("openai", OpenAIProvider())
+    elif name == "anthropic":
+        from brand_loom.providers.anthropic import AnthropicProvider
+
+        register_provider("anthropic", AnthropicProvider())
+    elif name == "gemini":
+        from brand_loom.providers.gemini import GeminiProvider
+
+        register_provider("gemini", GeminiProvider())
+    elif name == "ollama":
+        from brand_loom.providers.ollama import OllamaProvider
+
+        register_provider("ollama", OllamaProvider())
