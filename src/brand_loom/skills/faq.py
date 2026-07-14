@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from brand_loom.prompts.faq import build_faq_prompt
+from brand_loom.prompts.faq import build_faq_prompt, clamp_faq_count
 from brand_loom.providers.base import get_provider
 from brand_loom.skills.base import Skill, SkillInput, SkillOutput
 from brand_loom.skills.registry import register
@@ -19,7 +19,7 @@ class FAQSkill(Skill):
         ctx = inp.context or {}
         brand_context = ctx.get("brand_context")
         topic = ctx.get("topic", "")
-        count = ctx.get("count", 5)
+        count = clamp_faq_count(ctx.get("count", 5))
         locale = ctx.get("locale", "en")
 
         system, user = build_faq_prompt(

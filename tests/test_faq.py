@@ -71,6 +71,19 @@ class TestFAQSkill:
         ))
         assert result.text
 
+    def test_metadata_reports_clamped_count(self):
+        skill = FAQSkill()
+        result = skill.run(SkillInput(text=SAMPLE_BODY, context={"count": 10}))
+        assert result.metadata["count"] == 6
+
+        result = skill.run(SkillInput(text=SAMPLE_BODY, context={"count": 1}))
+        assert result.metadata["count"] == 3
+
+    def test_metadata_count_within_range_unchanged(self):
+        skill = FAQSkill()
+        result = skill.run(SkillInput(text=SAMPLE_BODY, context={"count": 4}))
+        assert result.metadata["count"] == 4
+
     def test_skill_registration(self):
         from brand_loom.skills.registry import get_skill
 
