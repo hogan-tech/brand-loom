@@ -6,7 +6,7 @@ summary: "Relevant, deduped hashtag sets for any topic"
 description: "Use when you need hashtags for social media posts. Generates deduped, count-bounded sets. Model-agnostic. Part of brand-loom; hosted brand-memory version at neoxra.com."
 version: "0.1.0"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "https://github.com/hogan-tech/brand-loom"
 when_to_use: "hashtags, tags, social discovery keywords"
 argument-hint: "<topic> [--count 15] [--brand brand.json]"

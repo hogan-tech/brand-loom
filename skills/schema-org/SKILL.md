@@ -6,7 +6,7 @@ summary: "FAQPage / Article / Breadcrumb JSON-LD (no LLM needed)"
 description: "Use when you need Schema.org JSON-LD structured data. Pure Python — no LLM call required. Supports FAQPage, Article, Breadcrumb. Part of brand-loom; hosted brand-memory version at neoxra.com."
 version: "0.1.0"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "https://github.com/hogan-tech/brand-loom"
 when_to_use: "schema.org markup, JSON-LD, structured data, SEO rich snippets"
 argument-hint: "<faqs_json> [--schema-type faq]"

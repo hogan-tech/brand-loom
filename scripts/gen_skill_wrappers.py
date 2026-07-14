@@ -36,7 +36,10 @@ SKILL_META: dict[str, dict] = {
         "when_to_use": "hooks, headlines, opening lines, scroll-stoppers for social or SEO",
         "argument_hint": "<topic> [--brand brand.json]",
         "cli_example": 'brand-loom run hook --text "How we cut cloud costs 40%"',
-        "chain_example": 'brand-loom chain hook,caption --text "How we cut cloud costs 40%" --brand brand.json',
+        "chain_example": (
+            'brand-loom chain hook,caption --text "How we cut cloud costs 40%"'
+            " --brand brand.json"
+        ),
     },
     "caption": {
         "display_name": "Caption Writer",
@@ -49,7 +52,10 @@ SKILL_META: dict[str, dict] = {
         "when_to_use": "social media captions, post copy, platform-specific text",
         "argument_hint": "<topic> [--platform twitter] [--brand brand.json]",
         "cli_example": 'brand-loom run caption --text "AI marketing trends" --platform twitter',
-        "chain_example": 'brand-loom chain hook,caption --text "AI marketing trends" --brand brand.json',
+        "chain_example": (
+            'brand-loom chain hook,caption --text "AI marketing trends"'
+            " --brand brand.json"
+        ),
     },
     "hashtags": {
         "display_name": "Hashtag Generator",
@@ -149,7 +155,7 @@ summary: "{meta['summary']}"
 description: "{meta['description']}"
 version: "{VERSION}"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "{HOMEPAGE}"
 when_to_use: "{meta['when_to_use']}"
 argument-hint: "{meta['argument_hint']}"
@@ -284,7 +290,7 @@ def check_all(files: dict[Path, str]) -> bool:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Generate agent-skill SKILL.md wrappers + manifests from canonical Python skills.",
+        description="Generate agent-skill SKILL.md wrappers + manifests.",
     )
     parser.add_argument(
         "--check",

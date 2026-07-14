@@ -6,7 +6,7 @@ summary: "Structured SEO article outlines with section planning"
 description: "Use when you need an SEO-optimized article outline with 4-8 sections. Locale-parametric. Model-agnostic. Part of brand-loom; hosted brand-memory version at neoxra.com."
 version: "0.1.0"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "https://github.com/hogan-tech/brand-loom"
 when_to_use: "SEO outlines, article planning, content structure, blog post skeletons"
 argument-hint: "<topic> [--locale en] [--brand brand.json]"

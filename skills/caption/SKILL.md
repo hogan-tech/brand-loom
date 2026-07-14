@@ -6,7 +6,7 @@ summary: "Platform captions from a topic with brand voice"
 description: "Use when you need a social media caption for any platform. Supports brand_context for voice/tone. Model-agnostic. Part of brand-loom; hosted brand-memory version at neoxra.com."
 version: "0.1.0"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "https://github.com/hogan-tech/brand-loom"
 when_to_use: "social media captions, post copy, platform-specific text"
 argument-hint: "<topic> [--platform twitter] [--brand brand.json]"

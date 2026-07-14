@@ -6,7 +6,7 @@ summary: "Call-to-action variants for any goal"
 description: "Use when you need call-to-action copy for buttons, banners, or closing lines. Generates multiple CTA variants. Model-agnostic. Part of brand-loom; hosted brand-memory version at neoxra.com."
 version: "0.1.0"
 license: Apache-2.0
-compatibility: "Claude Code, Cursor, OpenClaw, and any agent-skill host; or standalone via `pip install brand-loom`"
+compatibility: "Claude Code, Cursor, OpenClaw, or standalone via pip install brand-loom"
 homepage: "https://github.com/hogan-tech/brand-loom"
 when_to_use: "CTAs, buttons, conversion copy, action prompts, closing lines"
 argument-hint: "<goal> [--count 5] [--brand brand.json]"
