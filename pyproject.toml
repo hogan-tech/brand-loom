@@ -27,6 +27,9 @@ gemini = ["google-genai>=1.0"]
 all = ["brand-loom[openai,anthropic,gemini]"]
 dev = ["ruff>=0.4", "pytest>=8.0"]
 
+[project.scripts]
+brand-loom = "brand_loom.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/hogan-tech/brand-loom"
 Documentation = "https://github.com/hogan-tech/brand-loom#readme"
