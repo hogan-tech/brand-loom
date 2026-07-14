@@ -217,5 +217,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# Internal planning docs (not for public repo)
+docs/specs/
+
 # macOS
 .DS_Store
