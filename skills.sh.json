@@ -1,0 +1,19 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "groupings": [
+    {
+      "title": "brand-loom — model-agnostic marketing skills",
+      "description": "Runs on any LLM (OpenAI/Anthropic/Gemini/Ollama), BYOK, no coding agent required. Hosted brand-memory engine at neoxra.com.",
+      "skills": [
+        "hook",
+        "caption",
+        "hashtags",
+        "repurpose",
+        "seo-outline",
+        "faq",
+        "schema-org",
+        "cta"
+      ]
+    }
+  ]
+}
