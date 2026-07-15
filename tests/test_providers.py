@@ -61,3 +61,27 @@ def test_unknown_provider_raises():
 def test_unknown_model_prefix_raises():
     with pytest.raises(ValueError, match="Cannot auto-detect"):
         resolve_provider_for_model("llama-3")
+
+
+def test_use_provider_beats_env_var(monkeypatch):
+    """use_provider() must take precedence over BRANDLOOM_PROVIDER env var."""
+    # Register two distinct providers so we can tell them apart
+    provider_a = FakeProvider()
+    provider_b = FakeProvider()
+    register_provider("provider-a", provider_a)
+    register_provider("provider-b", provider_b)
+
+    monkeypatch.setenv("BRANDLOOM_PROVIDER", "provider-a")
+    use_provider("provider-b")
+
+    assert get_provider() is provider_b  # active beats env var
+
+
+def test_env_var_is_fallback_when_no_active(monkeypatch):
+    """BRANDLOOM_PROVIDER is used only when no active provider is set."""
+    from brand_loom.providers.base import _ACTIVE
+
+    _ACTIVE[0] = None  # clear active provider
+    monkeypatch.setenv("BRANDLOOM_PROVIDER", "fake")
+    p = get_provider()
+    assert isinstance(p, FakeProvider)
