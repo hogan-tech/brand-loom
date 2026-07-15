@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.1 (2026-07-15)
+
+### Bug fixes
+- **Provider precedence:** `use_provider()` and `--provider` flag now correctly beat the `BRANDLOOM_PROVIDER` env var. Previously the env var silently overrode explicit provider selection, potentially spending API credits on the wrong vendor. (#20, #22)
+- **Hashtag dedupe:** skip empty/whitespace-only tags instead of emitting bare `#` entries. (#18)
+- **FAQ metadata:** report the clamped count (3–6) in skill metadata instead of the raw user input. (#19)
+
+### Tests
+- Added brand_context schema contract + cross-skill seam coverage (39 new tests). (#21)
+
 ## 0.1.0 (2026-07-13)
 
 Initial release.

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "brand-loom"
-version = "0.1.0"
+version = "0.1.1"
 description = "Open-source marketing skills that run on any model."
 readme = "README.md"
 license = "Apache-2.0"
