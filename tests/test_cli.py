@@ -34,6 +34,18 @@ class TestCLIChain:
         assert captured.out.strip()
 
 
+class TestCLIProviderPrecedence:
+    def test_provider_flag_beats_env_var(self, capsys, monkeypatch):
+        """--provider fake must work even when BRANDLOOM_PROVIDER is set to something else."""
+        monkeypatch.setenv("BRANDLOOM_PROVIDER", "openai")
+        # If env var won, this would try to call OpenAI (no key → RuntimeError).
+        # With the fix, --provider fake wins → no error, output is from fake provider.
+        main(["run", "hook", "--text", "test", "--provider", "fake"])
+        captured = capsys.readouterr()
+        assert captured.out.strip()
+        assert "fake" in captured.out.lower() or "result" in captured.out.lower()
+
+
 class TestCLIList:
     def test_list_skills(self, capsys):
         main(["list"])

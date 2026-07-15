@@ -37,16 +37,22 @@ def register_provider(name: str, provider: LLMProvider) -> None:
 
 
 def get_provider(name: str | None = None) -> LLMProvider:
-    """Get a provider by name, env var, or return the active default."""
+    """Get a provider by explicit name, active provider, or env var fallback.
+
+    Precedence (highest → lowest):
+      1. Explicit ``name`` argument
+      2. Active provider set by ``use_provider()``
+      3. ``BRANDLOOM_PROVIDER`` env var (ambient default)
+    """
     if name:
         return _resolve(name)
+
+    if _ACTIVE[0] is not None:
+        return _ACTIVE[0]
 
     env = os.environ.get("BRANDLOOM_PROVIDER")
     if env:
         return _resolve(env)
-
-    if _ACTIVE[0] is not None:
-        return _ACTIVE[0]
 
     raise RuntimeError(
         "No provider configured. Set BRANDLOOM_PROVIDER, call use_provider(), "
