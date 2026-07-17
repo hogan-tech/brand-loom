@@ -116,6 +116,20 @@ automatically. No configuration needed — install and use.
 | Ollama (local) | built-in (HTTP) | `OLLAMA_HOST` |
 | Fake (tests/demo) | built-in | — |
 
+## Self-check (opt-in lint)
+
+Run any skill with `self_check=True` to get a lightweight, rule-based lint on the output — anti-slop detection,
+banned-phrase flagging, frontmatter-leak checks, and length validation. The lint only **flags** issues; it does not
+score, veto, or retry.
+
+```python
+result = run_skill("hook", "AI marketing", self_check=True)
+print(result.metadata["lint"])  # [] if clean, or list of {"rule": "...", "detail": "..."}
+```
+
+> **Quality scoring + gated retry** (tuned evaluators, RankMath scoring, auto-retry on low quality) is in the
+> hosted product at **[neoxra.com](https://neoxra.com)**.
+
 ## The brand_context seam
 
 Skills accept an optional `brand_context` dict (`tone`, `audience`, `do_phrases`, `avoid_phrases`). `brand-loom`

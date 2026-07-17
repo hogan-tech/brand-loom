@@ -7,6 +7,7 @@ It is NOT the Neoxra orchestrator — no Planner/Critic/2-pass/TrafficLoop.
 
 from __future__ import annotations
 
+from brand_loom.selfcheck import lint
 from brand_loom.skills.base import SkillInput, SkillOutput
 from brand_loom.skills.registry import get_skill
 
@@ -27,15 +28,28 @@ def run_skill(
     name: str,
     text: str,
     brand_context: dict | None = None,
+    self_check: bool = False,
     **extra_context,
 ) -> SkillOutput:
-    """Run a single skill by name."""
+    """Run a single skill by name.
+
+    When *self_check* is True the output is linted with the commodity
+    rule-based checker and any issues are returned in
+    ``result.metadata["lint"]``.  The lint only FLAGS — no veto, no retry.
+    Quality scoring + gated retry is in the hosted product.
+    """
     _ensure_skills_loaded()
     skill = get_skill(name)
     context = dict(extra_context)
     if brand_context:
         context["brand_context"] = brand_context
-    return skill.run(SkillInput(text=text, context=context or None))
+    result = skill.run(SkillInput(text=text, context=context or None))
+
+    if self_check:
+        issues = lint(result.text)
+        result.metadata["lint"] = issues
+
+    return result
 
 
 def run_chain(
