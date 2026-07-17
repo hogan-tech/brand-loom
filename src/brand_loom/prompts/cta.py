@@ -2,6 +2,18 @@
 
 from __future__ import annotations
 
+CTA_FEW_SHOT = (
+    "\n\nHere are examples of strong CTAs:\n"
+    "Goal: free trial sign-up\n"
+    '["Start your free trial — no credit card needed",'
+    ' "See it in action: 14-day free trial",'
+    ' "Try it free for 14 days, cancel anytime"]\n\n'
+    "Goal: newsletter subscription\n"
+    '["Get weekly insights — join 10,000+ marketers",'
+    ' "Subscribe and never miss a strategy update",'
+    ' "Join the list. One email a week, zero fluff."]'
+)
+
 
 def build_cta_prompt(
     goal: str,
@@ -15,6 +27,7 @@ def build_cta_prompt(
         f"You are a conversion copywriter. Write in {locale}. "
         "Generate compelling calls-to-action that drive action. "
         "Be clear, urgent, and benefit-focused."
+        + CTA_FEW_SHOT
     )
 
     if brand_context:

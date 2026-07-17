@@ -2,6 +2,18 @@
 
 from __future__ import annotations
 
+HOOK_FEW_SHOT = (
+    "\n\nHere are examples of strong hooks:\n"
+    "Topic: remote work productivity\n"
+    '["We tracked 1,000 remote teams for a year — here\'s what the top 1% do differently",'
+    ' "Your home office is costing you 2 hours a day (and you don\'t even notice)",'
+    ' "I managed 50 remote engineers. The #1 mistake? Meetings."]\n\n'
+    "Topic: email marketing\n"
+    '["We deleted 80% of our email list. Revenue went up.",'
+    ' "The subject line formula that doubled our open rate overnight",'
+    ' "Stop sending newsletters. Start sending this instead."]'
+)
+
 
 def build_hook_prompt(
     topic: str,
@@ -18,6 +30,7 @@ def build_hook_prompt(
         f"You are a marketing copywriter. Write in {locale}. "
         "Generate attention-grabbing hooks and headlines. "
         "Be concise, punchy, and scroll-stopping."
+        + HOOK_FEW_SHOT
     )
 
     if brand_context:

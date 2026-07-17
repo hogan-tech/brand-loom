@@ -10,6 +10,19 @@ TARGET_FORMATS = {
     "email": "a short email newsletter snippet with subject line",
 }
 
+REPURPOSE_FEW_SHOT = (
+    "\n\nHere are examples of strong repurposed content:\n"
+    "Format: short (social post)\n"
+    '{"format": "short", "content": "We analyzed 500 landing pages. '
+    "The ones that converted best had one thing in common: a single, "
+    'clear CTA above the fold. Fewer choices = more clicks."}\n\n'
+    "Format: summary (executive bullets)\n"
+    '{"format": "summary", "content": '
+    '"• Remote teams with async-first practices ship 30% faster\\n'
+    "• Daily standups don't improve velocity — weekly syncs do\\n"
+    '• Written updates outperform video check-ins for knowledge retention"}'
+)
+
 
 def build_repurpose_prompt(
     source_text: str,
@@ -25,6 +38,7 @@ def build_repurpose_prompt(
         f"You are a content strategist. Write in {locale}. "
         f"Repurpose the given content into {format_desc}. "
         "Preserve the key message and value while adapting the format."
+        + REPURPOSE_FEW_SHOT
     )
 
     if brand_context:

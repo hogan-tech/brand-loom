@@ -1,6 +1,6 @@
 """Tests for the FAQ generator skill."""
 
-from brand_loom.prompts.faq import build_faq_prompt
+from brand_loom.prompts.faq import FAQ_FEW_SHOT, build_faq_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.faq import FAQSkill
@@ -41,6 +41,11 @@ class TestFAQPromptBuilder:
         )
         assert "friendly" in system
         assert "marketers" in system
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_faq_prompt(SAMPLE_BODY)
+        assert FAQ_FEW_SHOT in system
+        assert "examples of strong FAQ pairs" in system
 
     def test_json_structure_requested(self):
         _, user = build_faq_prompt(SAMPLE_BODY)

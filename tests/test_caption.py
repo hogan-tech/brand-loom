@@ -1,7 +1,7 @@
 """Tests for the caption writer skill."""
 
 from brand_loom.brand import EMPTY_BRAND_CONTEXT, SAMPLE_BRAND_CONTEXT
-from brand_loom.prompts.caption import build_caption_prompt
+from brand_loom.prompts.caption import CAPTION_FEW_SHOT, build_caption_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.caption import CaptionSkill
@@ -22,6 +22,11 @@ class TestCaptionPromptBuilder:
         system, _ = build_caption_prompt("topic", brand_context=SAMPLE_BRAND_CONTEXT)
         assert "bold" in system
         assert "startup founders" in system
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_caption_prompt("topic")
+        assert CAPTION_FEW_SHOT in system
+        assert "examples of strong captions" in system
 
     def test_empty_brand_context_is_safe(self):
         system, _ = build_caption_prompt("topic", brand_context=EMPTY_BRAND_CONTEXT)

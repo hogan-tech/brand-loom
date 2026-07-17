@@ -1,6 +1,6 @@
 """Tests for the hashtag generator skill."""
 
-from brand_loom.prompts.hashtags import build_hashtag_prompt
+from brand_loom.prompts.hashtags import HASHTAG_FEW_SHOT, build_hashtag_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.hashtags import HashtagSkill
@@ -16,6 +16,11 @@ class TestHashtagPromptBuilder:
     def test_custom_count(self):
         _, user = build_hashtag_prompt("topic", count=10)
         assert "10" in user
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_hashtag_prompt("topic")
+        assert HASHTAG_FEW_SHOT in system
+        assert "examples of strong hashtag sets" in system
 
     def test_brand_context(self):
         system, _ = build_hashtag_prompt(

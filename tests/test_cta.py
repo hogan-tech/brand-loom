@@ -1,6 +1,6 @@
 """Tests for the CTA writer skill."""
 
-from brand_loom.prompts.cta import build_cta_prompt
+from brand_loom.prompts.cta import CTA_FEW_SHOT, build_cta_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.cta import CTASkill
@@ -19,6 +19,11 @@ class TestCTAPromptBuilder:
     def test_locale(self):
         system, _ = build_cta_prompt("subscribe", locale="es")
         assert "es" in system
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_cta_prompt("subscribe")
+        assert CTA_FEW_SHOT in system
+        assert "examples of strong CTAs" in system
 
     def test_brand_context(self):
         system, _ = build_cta_prompt(
