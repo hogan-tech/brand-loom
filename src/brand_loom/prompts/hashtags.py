@@ -2,6 +2,14 @@
 
 from __future__ import annotations
 
+HASHTAG_FEW_SHOT = (
+    "\n\nHere are examples of strong hashtag sets:\n"
+    "Topic: home coffee brewing\n"
+    '["#CoffeeBrewing", "#HomeCafe", "#PourOver", "#SpecialtyCoffee", "#MorningRoutine"]\n\n'
+    "Topic: B2B SaaS marketing\n"
+    '["#B2BSaaS", "#SaaSGrowth", "#MarketingStrategy", "#DemandGen", "#StartupMarketing"]'
+)
+
 
 def build_hashtag_prompt(
     topic: str,
@@ -15,6 +23,7 @@ def build_hashtag_prompt(
         f"You are a social media strategist. Write in {locale}. "
         "Generate relevant, discoverable hashtags. Mix popular broad tags "
         "with niche-specific ones for optimal reach."
+        + HASHTAG_FEW_SHOT
     )
 
     if brand_context:

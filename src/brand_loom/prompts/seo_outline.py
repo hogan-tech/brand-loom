@@ -2,6 +2,20 @@
 
 from __future__ import annotations
 
+SEO_OUTLINE_FEW_SHOT = (
+    "\n\nHere is an example of a strong SEO outline:\n"
+    "Topic: best project management tools for startups\n"
+    '{"title": "Best Project Management Tools for Startups in 2025",'
+    ' "slug": "best-project-management-tools-startups",'
+    ' "meta_description": "Compare the top project management tools for startups. '
+    'We cover pricing, features, and team size fit so you can pick the right one.",'
+    ' "sections": ['
+    '{"heading": "Why Startups Need a Dedicated PM Tool", '
+    '"key_points": ["Spreadsheets break at 5+ people", "Visibility reduces duplicate work"]},'
+    ' {"heading": "Top 5 Tools Compared", '
+    '"key_points": ["Feature matrix", "Pricing tiers", "Free-plan limits"]}]}'
+)
+
 
 def build_seo_outline_prompt(
     topic: str,
@@ -17,6 +31,7 @@ def build_seo_outline_prompt(
         f"You are an SEO content strategist. Write in {locale}. "
         "Create structured, search-optimized article outlines that target "
         "featured snippets and long-tail keywords."
+        + SEO_OUTLINE_FEW_SHOT
     )
 
     if brand_context:

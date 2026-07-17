@@ -1,6 +1,6 @@
 """Tests for the SEO outline skill."""
 
-from brand_loom.prompts.seo_outline import build_seo_outline_prompt
+from brand_loom.prompts.seo_outline import SEO_OUTLINE_FEW_SHOT, build_seo_outline_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.seo_outline import SEOOutlineSkill
@@ -35,6 +35,11 @@ class TestSEOOutlinePromptBuilder:
         )
         assert "authoritative" in system
         assert "CTOs" in system
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_seo_outline_prompt("topic")
+        assert SEO_OUTLINE_FEW_SHOT in system
+        assert "example of a strong SEO outline" in system
 
     def test_json_structure_requested(self):
         _, user = build_seo_outline_prompt("topic")

@@ -1,6 +1,6 @@
 """Tests for the hook / headline generator skill."""
 
-from brand_loom.prompts.hook import build_hook_prompt
+from brand_loom.prompts.hook import HOOK_FEW_SHOT, build_hook_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.hook import HookSkill
@@ -29,6 +29,11 @@ class TestHookPromptBuilder:
         assert "startup founders" in system
         assert "game-changer" in system
         assert "synergy" in system
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_hook_prompt("topic")
+        assert HOOK_FEW_SHOT in system
+        assert "examples of strong hooks" in system
 
     def test_custom_count(self):
         _, user = build_hook_prompt("topic", count=3)

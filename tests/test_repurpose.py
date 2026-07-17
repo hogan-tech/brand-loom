@@ -1,6 +1,6 @@
 """Tests for the content repurposer skill."""
 
-from brand_loom.prompts.repurpose import TARGET_FORMATS, build_repurpose_prompt
+from brand_loom.prompts.repurpose import REPURPOSE_FEW_SHOT, TARGET_FORMATS, build_repurpose_prompt
 from brand_loom.providers import use_provider
 from brand_loom.skills.base import SkillInput
 from brand_loom.skills.repurpose import RepurposeSkill
@@ -28,6 +28,11 @@ class TestRepurposePromptBuilder:
     def test_carousel_format(self):
         system, user = build_repurpose_prompt(SAMPLE_ARTICLE, target_format="carousel")
         assert "carousel" in system.lower()
+
+    def test_few_shot_exemplars_in_system(self):
+        system, _ = build_repurpose_prompt(SAMPLE_ARTICLE)
+        assert REPURPOSE_FEW_SHOT in system
+        assert "examples of strong repurposed content" in system
 
     def test_brand_context(self):
         system, _ = build_repurpose_prompt(
