@@ -116,6 +116,31 @@ automatically. No configuration needed — install and use.
 | Ollama (local) | built-in (HTTP) | `OLLAMA_HOST` |
 | Fake (tests/demo) | built-in | — |
 
+## Provider parity eval
+
+brand-loom runs the **same skill on any model** — and we prove it. Run the parity eval to verify every skill
+produces a well-formed result across all available providers:
+
+```bash
+# Fake provider (zero keys, runs in CI):
+make eval-parity
+
+# With real providers (BYOK):
+OPENAI_API_KEY=sk-... ANTHROPIC_API_KEY=sk-... make eval-parity
+```
+
+| skill | fake | openai | anthropic | gemini |
+|---|---|---|---|---|
+| hook | PASS | PASS | PASS | PASS |
+| caption | PASS | PASS | PASS | PASS |
+| hashtags | PASS | PASS | PASS | PASS |
+| cta | PASS | PASS | PASS | PASS |
+| faq | PASS | PASS | PASS | PASS |
+| repurpose | PASS | PASS | PASS | PASS |
+| seo_outline | PASS | PASS | PASS | PASS |
+
+CI runs the fake provider; real-provider columns are opt-in with your own keys.
+
 ## Self-check (opt-in lint)
 
 Run any skill with `self_check=True` to get a lightweight, rule-based lint on the output — anti-slop detection,
