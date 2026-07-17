@@ -161,6 +161,23 @@ Skills accept an optional `brand_context` dict (`tone`, `audience`, `do_phrases`
 ships an empty/basic default. Automatic voice extraction from your existing content, multi-platform fan-out, and a
 no-code UI live in hosted **[Neoxra](https://neoxra.com)** — see [HOSTED.md](HOSTED.md).
 
+### Before / after demo
+
+See the quality gap yourself — same skill, with and without brand context:
+
+```bash
+python examples/before_after_demo.py
+```
+
+A sample `brand_context` lives in [`examples/sample_brand_context.json`](examples/sample_brand_context.json).
+Use it with the CLI:
+
+```bash
+brand-loom run hook --text "How we cut cloud costs 40%" --brand examples/sample_brand_context.json
+```
+
+> Get **real brand memory** + multi-platform + hosted scoring at **[neoxra.com](https://neoxra.com)**.
+
 ## Contributing
 
 PRs welcome — read [CONTRIBUTING.md](CONTRIBUTING.md), [SCOPE.md](SCOPE.md), and sign the

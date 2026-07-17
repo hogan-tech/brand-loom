@@ -1,0 +1,27 @@
+{
+  "tone": [
+    "confident but not arrogant",
+    "data-driven",
+    "slightly irreverent",
+    "direct — no filler"
+  ],
+  "audience": "B2B SaaS founders (seed to Series B), technical co-founders, and growth-stage marketing leads who've outgrown Mailchimp",
+  "do_phrases": [
+    "ship it",
+    "here's what the data says",
+    "real talk",
+    "we tested this",
+    "no fluff",
+    "built for builders"
+  ],
+  "avoid_phrases": [
+    "synergy",
+    "leverage",
+    "circle back",
+    "thought leader",
+    "paradigm shift",
+    "in today's fast-paced world",
+    "delve",
+    "unlock the power"
+  ]
+}
