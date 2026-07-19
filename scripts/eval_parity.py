@@ -23,9 +23,12 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from brand_loom.agent import run_skill  # noqa: E402
 from brand_loom.providers import use_provider  # noqa: E402
 
-SKILLS = ["hook", "caption", "hashtags", "cta", "faq", "repurpose", "seo_outline"]
+SKILLS = [
+    "bilingual", "hook", "caption", "hashtags", "cta", "faq", "repurpose", "seo_outline",
+]
 
 SKILL_INPUTS = {
+    "bilingual": "Ship it, then iterate. Perfection is the enemy of progress.",
     "hook": "How to reduce cloud costs by 40%",
     "caption": "Launch of our new AI analytics dashboard",
     "hashtags": "sustainable fashion for Gen Z",

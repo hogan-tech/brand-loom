@@ -14,6 +14,7 @@ from brand_loom.skills.registry import get_skill
 
 def _ensure_skills_loaded() -> None:
     """Import all skill modules so they auto-register."""
+    import brand_loom.skills.bilingual  # noqa: F401
     import brand_loom.skills.caption  # noqa: F401
     import brand_loom.skills.cta  # noqa: F401
     import brand_loom.skills.faq  # noqa: F401
