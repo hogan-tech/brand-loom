@@ -20,6 +20,7 @@ def _ensure_skills_loaded() -> None:
     import brand_loom.skills.faq  # noqa: F401
     import brand_loom.skills.hashtags  # noqa: F401
     import brand_loom.skills.hook  # noqa: F401
+    import brand_loom.skills.linkedin_post  # noqa: F401
     import brand_loom.skills.repurpose  # noqa: F401
     import brand_loom.skills.schema_org  # noqa: F401
     import brand_loom.skills.seo_outline  # noqa: F401
