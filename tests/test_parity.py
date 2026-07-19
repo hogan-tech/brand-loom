@@ -18,12 +18,14 @@ from brand_loom.providers import use_provider
 # ---------------------------------------------------------------------------
 
 LLM_SKILLS = [
-    "bilingual", "hook", "caption", "hashtags", "cta", "faq", "repurpose", "seo_outline",
+    "bilingual", "hook", "caption", "hashtags", "cta", "faq",
+    "linkedin_post", "repurpose", "seo_outline",
 ]
 
 SKILL_INPUTS: dict[str, str] = {
     "bilingual": "Ship it, then iterate. Perfection is the enemy of progress.",
     "hook": "How to reduce cloud costs by 40%",
+    "linkedin_post": "Just hit 10,000 users with zero paid ads",
     "caption": "Launch of our new AI analytics dashboard",
     "hashtags": "sustainable fashion for Gen Z",
     "cta": "sign up for a free 14-day trial",
@@ -49,6 +51,10 @@ def _assert_bilingual_structure(text: str) -> None:
 
 def _assert_hook_structure(text: str) -> None:
     assert len(text.strip()) > 0, "hook returned empty"
+
+
+def _assert_linkedin_post_structure(text: str) -> None:
+    assert len(text.strip()) > 0, "linkedin_post returned empty"
 
 
 def _assert_caption_structure(text: str) -> None:
@@ -78,6 +84,7 @@ def _assert_seo_outline_structure(text: str) -> None:
 STRUCTURE_VALIDATORS = {
     "bilingual": _assert_bilingual_structure,
     "hook": _assert_hook_structure,
+    "linkedin_post": _assert_linkedin_post_structure,
     "caption": _assert_caption_structure,
     "hashtags": _assert_hashtags_structure,
     "cta": _assert_cta_structure,

@@ -24,12 +24,14 @@ from brand_loom.agent import run_skill  # noqa: E402
 from brand_loom.providers import use_provider  # noqa: E402
 
 SKILLS = [
-    "bilingual", "hook", "caption", "hashtags", "cta", "faq", "repurpose", "seo_outline",
+    "bilingual", "hook", "caption", "hashtags", "cta", "faq",
+    "linkedin_post", "repurpose", "seo_outline",
 ]
 
 SKILL_INPUTS = {
     "bilingual": "Ship it, then iterate. Perfection is the enemy of progress.",
     "hook": "How to reduce cloud costs by 40%",
+    "linkedin_post": "Just hit 10,000 users with zero paid ads",
     "caption": "Launch of our new AI analytics dashboard",
     "hashtags": "sustainable fashion for Gen Z",
     "cta": "sign up for a free 14-day trial",
