@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0 (2026-07-19)
+
+### Added
+- **bilingual** skill — EN ↔ zh-TW voice-preserving translation with preserve_terms support
+- **linkedin_post** skill — LinkedIn post generation from milestones/topics (text, article, carousel)
+- Generic few-shot exemplars in every prompt builder (lifts baseline output quality)
+- Opt-in self-check lint (`self_check=True`) — anti-slop, banned phrases, frontmatter leak detection
+- Provider parity eval (`make eval-parity`) — proves model-agnostic execution across all providers
+- Before/after brand_context demo (`examples/before_after_demo.py`)
+- `RICH_BRAND_CONTEXT` with detailed tone, audience, and phrase guidance
+- `examples/sample_brand_context.json` for CLI usage
+- `Makefile` with lint, test, and eval-parity targets
+
+### Changed
+- Provider parity matrix expanded to 9 skills (from 7)
+- README skill table updated to v0.2 (10 skills total)
+
 ## 0.1.1 (2026-07-15)
 
 ### Bug fixes

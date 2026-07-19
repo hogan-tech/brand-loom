@@ -6,9 +6,9 @@
 [![PyPI](https://img.shields.io/pypi/v/brand-loom.svg)](https://pypi.org/project/brand-loom/)
 [![CI](https://github.com/hogan-tech/brand-loom/actions/workflows/ci.yml/badge.svg)](https://github.com/hogan-tech/brand-loom/actions/workflows/ci.yml)
 
-`brand-loom` is a small library of **commodity marketing skills** — hooks, captions, hashtags, content
-repurposing, SEO outlines, FAQs, schema.org markup, CTAs — that run on **any LLM** (OpenAI, Anthropic, Gemini,
-or a local model via Ollama). Bring your own key. No coding agent, no vendor lock-in.
+`brand-loom` is a library of **commodity marketing skills** — hooks, captions, hashtags, content repurposing,
+SEO outlines, FAQs, schema.org markup, CTAs, bilingual translation, and LinkedIn posts — that run on **any LLM**
+(OpenAI, Anthropic, Gemini, or a local model via Ollama). Bring your own key. No coding agent, no vendor lock-in.
 
 > Want it *on-brand* and *multi-platform* automatically — without writing prompts? That's the hosted engine at
 > **[neoxra.com](https://neoxra.com)** (auto voice extraction, multi-platform orchestration, Brand Kit). `brand-loom`
@@ -93,7 +93,7 @@ automatically. No configuration needed — install and use.
 > brand-loom remains **model-agnostic and usable without any coding agent** via `pip install brand-loom` + the CLI.
 > The agent-skill surface is additive distribution, not a requirement.
 
-## Skills (v0.1)
+## Skills (v0.2)
 
 | Skill | What it does |
 |---|---|
@@ -105,6 +105,8 @@ automatically. No configuration needed — install and use.
 | `faq` | 3–6 Q&A pairs from a body of text |
 | `schema_org` | FAQPage / Article / Breadcrumb JSON-LD (no LLM) |
 | `cta` | Call-to-action variants for a goal |
+| `bilingual` | EN ↔ zh-TW voice-preserving translation |
+| `linkedin_post` | LinkedIn post from milestones/topics |
 
 ## Providers
 
@@ -131,11 +133,13 @@ OPENAI_API_KEY=sk-... ANTHROPIC_API_KEY=sk-... make eval-parity
 
 | skill | fake | openai | anthropic | gemini |
 |---|---|---|---|---|
+| bilingual | PASS | PASS | PASS | PASS |
 | hook | PASS | PASS | PASS | PASS |
 | caption | PASS | PASS | PASS | PASS |
 | hashtags | PASS | PASS | PASS | PASS |
 | cta | PASS | PASS | PASS | PASS |
 | faq | PASS | PASS | PASS | PASS |
+| linkedin_post | PASS | PASS | PASS | PASS |
 | repurpose | PASS | PASS | PASS | PASS |
 | seo_outline | PASS | PASS | PASS | PASS |
 
