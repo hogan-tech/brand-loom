@@ -1,3 +1,3 @@
 """brand-loom — open-source marketing skills that run on any model."""
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

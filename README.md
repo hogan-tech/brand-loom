@@ -93,7 +93,7 @@ automatically. No configuration needed — install and use.
 > brand-loom remains **model-agnostic and usable without any coding agent** via `pip install brand-loom` + the CLI.
 > The agent-skill surface is additive distribution, not a requirement.
 
-## Skills (v0.2)
+## Skills (v0.3)
 
 | Skill | What it does |
 |---|---|
@@ -107,6 +107,11 @@ automatically. No configuration needed — install and use.
 | `cta` | Call-to-action variants for a goal |
 | `bilingual` | EN ↔ zh-TW voice-preserving translation |
 | `linkedin_post` | LinkedIn post from milestones/topics |
+| `linkedin_hook_generator` | 5 scroll-stopping hook variants for a LinkedIn topic |
+| `linkedin_post_scorer` | 6-metric evaluation (hook, skimmability, engagement, length, cta, voice_match) |
+| `linkedin_profile_analyzer` | Parse profile text, suggest headline + about improvements |
+| `linkedin_comment_drafter` | Draft a thoughtful comment on a target LinkedIn post |
+| `linkedin_refresh_writer` | Generate a fresh angle for an old LinkedIn post |
 
 ## Providers
 
