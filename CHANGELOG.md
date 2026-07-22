@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0 (2026-07-21)
+
+### Added
+- **linkedin_hook_generator** skill — 5 scroll-stopping hook variants for a LinkedIn topic (question, bold claim, story opener, data-led, contrarian)
+- **linkedin_post_scorer** skill — 6-metric evaluation (hook, skimmability, engagement, length, cta, voice_match) with actionable suggestions
+- **linkedin_profile_analyzer** skill — parse profile headline + about section, score each, suggest concrete improvements
+- **linkedin_comment_drafter** skill — draft a thoughtful, value-adding comment on a target LinkedIn post
+- **linkedin_refresh_writer** skill — given an old post, generate a refreshed version with a new angle
+- **LinkedIn MCP server** (`mcp/linkedin/`) — stdio MCP server exposing all LinkedIn skills as tools (draft_post, score_post, analyze_profile, suggest_hooks, extract_voice, refresh_old_post)
+
+### Changed
+- README skill table updated to v0.3 (15 skills total)
+- Agent runner updated to auto-discover the 5 new LinkedIn skills
+
 ## 0.2.0 (2026-07-19)
 
 ### Added

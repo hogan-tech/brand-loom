@@ -20,7 +20,12 @@ def _ensure_skills_loaded() -> None:
     import brand_loom.skills.faq  # noqa: F401
     import brand_loom.skills.hashtags  # noqa: F401
     import brand_loom.skills.hook  # noqa: F401
+    import brand_loom.skills.linkedin_comment_drafter  # noqa: F401
+    import brand_loom.skills.linkedin_hook_generator  # noqa: F401
     import brand_loom.skills.linkedin_post  # noqa: F401
+    import brand_loom.skills.linkedin_post_scorer  # noqa: F401
+    import brand_loom.skills.linkedin_profile_analyzer  # noqa: F401
+    import brand_loom.skills.linkedin_refresh_writer  # noqa: F401
     import brand_loom.skills.repurpose  # noqa: F401
     import brand_loom.skills.schema_org  # noqa: F401
     import brand_loom.skills.seo_outline  # noqa: F401
